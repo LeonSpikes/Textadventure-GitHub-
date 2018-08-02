@@ -1,5 +1,10 @@
 package com.leonmavroudi.textadventure;
 
+/**
+ * @author Leon Spikes
+ * In this class is all the text for ROOM ONE defined.
+ */
+
 public class Room1 {
     public static final String START =
             "Ok... I will tell you some things about this game before you ask." + Tools.NEWLINE +

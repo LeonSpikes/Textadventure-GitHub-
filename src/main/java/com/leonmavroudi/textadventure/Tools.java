@@ -1,5 +1,10 @@
 package com.leonmavroudi.textadventure;
 
+/**
+ * @author Leon Spikes
+ * In this class are all the commands for coloring defined.
+ */
+
 public class Tools {
     public static final String NEWLINE = System.lineSeparator();
     public static final String PROMPT = ">_ ";

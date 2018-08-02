@@ -1,5 +1,10 @@
 package com.leonmavroudi.textadventure;
 
+/**
+ * @author Leon Spikes
+ * In this class is all the text for ROOM ONE defined.
+ */
+
 public class Room2 {
     public static final String ENTER = "You got into the next room... Did you hear this? Of course not because no sound, huh? But i heared the ceiling coming down with a crushing noise.";
 

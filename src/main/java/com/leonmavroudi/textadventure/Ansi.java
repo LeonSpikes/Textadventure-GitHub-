@@ -1,5 +1,10 @@
 package com.leonmavroudi.textadventure;
 
+/**
+ * @author Leon Spikes
+ * In this class are all constants of color settings.
+ */
+
 public class Ansi {
 
     public static final String RESET = "\u001B[0m";

@@ -1,5 +1,10 @@
 package com.leonmavroudi.textadventure;
 
+/**
+ * @author Leon Spikes
+ * In this class is all the text for the START sequence defined.
+ */
+
 public class Start {
     public static final String START = Ansi.BLACK_BG + Ansi.GREEN +
             "Welcome to an easy/difficult (depends how good your writing skills are) Textadventure." + Tools.NEWLINE +
