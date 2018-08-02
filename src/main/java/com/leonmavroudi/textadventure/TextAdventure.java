@@ -2,8 +2,6 @@ package com.leonmavroudi.textadventure;
 
 public class TextAdventure {
 
-    public static boolean key1 = false;
-
     public static void main(String[] args) { start(); }
 
     public static void start() {
@@ -69,7 +67,7 @@ public class TextAdventure {
                     System.out.print(Tools.PROMPT);
                     line = Typing.readLine();
                     line.toLowerCase();
-                    if (key1 == false && line.contains("put") && line.contains("finger") && line.contains("into") && line.contains("keyhole")) {
+                    if (Inventory.key[0] == false && line.contains("put") && line.contains("finger") && line.contains("into") && line.contains("keyhole")) {
                         System.out.println(Room2.RIGHT_DOOR_KEYHOLE_STRUGGLE);
                     } else if (line.contains("go") && line.contains("back")) {
                         System.out.println(Room2.START);
