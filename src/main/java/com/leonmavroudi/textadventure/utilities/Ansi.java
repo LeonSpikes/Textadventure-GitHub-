@@ -1,4 +1,4 @@
-package com.leonmavroudi.textadventure;
+package com.leonmavroudi.textadventure.utilities;
 
 /**
  * @author Leon Spikes
@@ -6,7 +6,9 @@ package com.leonmavroudi.textadventure;
  */
 
 public class Ansi {
-
+    /**
+     * RESET means it resets all test color and backgrounds.
+     */
     public static final String RESET = "\u001B[0m";
     public static final String BOLD = "\u001B[1m";
 

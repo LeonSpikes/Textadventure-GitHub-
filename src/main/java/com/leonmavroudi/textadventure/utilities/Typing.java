@@ -1,8 +1,9 @@
-package com.leonmavroudi.textadventure;
+package com.leonmavroudi.textadventure.utilities;
 
 /**
  * @author Leon Spikes
- * In this class is the lineReader defined.
+ * In this class is the readLine() method defined.
+ * readLine() lets your string be filled with the commandline input.
  */
 
 import java.io.BufferedReader;

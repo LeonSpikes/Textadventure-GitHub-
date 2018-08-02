@@ -1,4 +1,4 @@
-package com.leonmavroudi.textadventure;
+package com.leonmavroudi.textadventure.utilities;
 
 /**
  * @author Leon Spikes

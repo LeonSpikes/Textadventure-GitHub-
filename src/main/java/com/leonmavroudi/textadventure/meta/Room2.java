@@ -1,4 +1,6 @@
-package com.leonmavroudi.textadventure;
+package com.leonmavroudi.textadventure.meta;
+
+import com.leonmavroudi.textadventure.utilities.Tools;
 
 /**
  * @author Leon Spikes

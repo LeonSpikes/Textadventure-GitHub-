@@ -1,5 +1,11 @@
 package com.leonmavroudi.textadventure;
 
+import com.leonmavroudi.textadventure.meta.Room1;
+import com.leonmavroudi.textadventure.meta.Room2;
+import com.leonmavroudi.textadventure.meta.Start;
+import com.leonmavroudi.textadventure.utilities.Tools;
+import com.leonmavroudi.textadventure.utilities.Typing;
+
 public class TextAdventure {
 
     public static void main(String[] args) { start(); }
