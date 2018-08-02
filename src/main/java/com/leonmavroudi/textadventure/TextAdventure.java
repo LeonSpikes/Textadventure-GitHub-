@@ -5,109 +5,80 @@ import java.io.InputStreamReader;
 
 public class TextAdventure {
 
-    public static final String NL = System.lineSeparator();
-    public static final String PROMPT = ">_ ";
-    public static final String RETURN_TO_RESTART = "Press return to restart";
-
-    public static final String START =
-            "Welcome to an easy/difficult (depends how good your writing skills are) Textadventure." + NL +
-            NL + "Ready to begin? (Y/n)";
-
-    public static final String START_BEGIN = "You chosed the beginning...";
-
-    public static final String START_BEGIN_2 =
-            "Ok... But why did you start the game if you don't wanna play?" + NL +
-            "F@*$ it! I'll start the game anyway!";
-
-    public static final String START_BEGIN_3 =
-            "Seems like you are a the worst in typing..." + NL +
-            "F@*$ it! I'll start the game anyway!";
-
-    public static final String ROOM_1_START =
-            "Ok... I will tell you some things about this game before you ask." + NL +
-            "First of all: This is a low budget game. We have no money for an graphical engine." + NL +
-            "Second: My name is Puffy. I will lead you through this game. Don't laugh about my name. My owner Carl calles me like this." + NL +
-            "Third: Let's start this Motherf#@!*ng game! Meow!" + NL +
-            NL +
-            "ROOM ONE:" + NL +
-            "In front of you is a door: What would you do?" + NL +
-            "A: Go through" + NL +
-            "B: Do not go through";
-
-    public static final String ROOM_TWO_ENTER = "You got into the next room... Did you hear this? Of course not because no sound, huh? But i heared the ceiling coming down with a crushing noise.";
-    public static final String DEATH_1 = "Oh! You got crushed by the ceiling because the room wasn't stable. Sorry, you died.";
-
-    public static final String ROOM_2_START =
-            NL +
-            "ROOM TWO:" + NL +
-            "In the middle of the room is a table, in front of you is a door an the same on your right: What would you do?" + NL +
-            "A: Check out front door" + NL +
-            "B: Check out table" + NL +
-            "C: Check out right door";
-
-    public static final String ROOM_2_FRONT_DOOR =
-            NL +
-            "You went to the front door and it's jammed: What would you do?" + NL +
-            "A: Look through keyhole" + NL +
-            "B: Check out table" + NL +
-            "C: Check out right door";
+    public static boolean key1 = false;
 
     public static void main(String[] args) { start(); }
 
     public static void start() {
-        System.out.println(START);
-        System.out.print(PROMPT);
+        System.out.println(Start.START);
+        System.out.print(Tools.PROMPT);
         String line = readLine();
         if (line.equals("") || line.equalsIgnoreCase("Y")){
-            System.out.println(START_BEGIN);
+            System.out.println(Start.BEGIN);
             firstRoom();
         } else if (line.equalsIgnoreCase("N")) {
-            System.out.println(START_BEGIN_2);
+            System.out.println(Start.BEGIN_2);
             firstRoom();
         } else {
-            System.out.println(START_BEGIN_3);
+            System.out.println(Start.BEGIN_3);
             firstRoom();
         }
     }
 
     public static void firstRoom() {
         System.out.println();
-        System.out.println(ROOM_1_START);
-        System.out.print(PROMPT);
+        System.out.println(Room1.START);
+        System.out.print(Tools.PROMPT);
         String line = readLine();
-        if (line.equalsIgnoreCase("A")){
-            System.out.println(ROOM_TWO_ENTER);
-            secondRoom();
-        } else if (line.equalsIgnoreCase("B")){
+        line.toLowerCase();
+        if (line.contains("not") && line.contains("go") && line.contains("through")) {
             System.out.println();
-            System.out.println(DEATH_1);
-            System.out.println(RETURN_TO_RESTART);
-            System.out.print(PROMPT);
+            System.out.println(Room1.DEATH_1);
+            System.out.println(Tools.RETURN_TO_RESTART);
+            System.out.print(Tools.PROMPT);
             line = readLine();
             start();
+        } else if (line.contains("go") && line.contains("through")){
+            System.out.println(Room2.ENTER);
+            secondRoom();
         } else {
             firstRoom();
         }
     }
 
     public static void secondRoom() {
-        System.out.println(ROOM_2_START);
+        System.out.println(Room2.START);
         while(true) {
-            System.out.print(PROMPT);
+            System.out.print(Tools.PROMPT);
             String line = readLine();
-            if (line.equalsIgnoreCase("A")) {
-                System.out.println(ROOM_2_FRONT_DOOR);
+            line.toLowerCase();
+            if (line.contains("check") && line.contains("out") && line.contains("front") && line.contains("door")) {
+                System.out.println(Room2.FRONT_DOOR);
                 while(true){
-                    System.out.print(PROMPT);
+                    System.out.print(Tools.PROMPT);
                     line = readLine();
-                    if (line.equalsIgnoreCase("A")) {
-
+                    line.toLowerCase();
+                    if (line.contains("look") && line.contains("through") && line.contains("keyhole")) {
+                        System.out.println(Room2.FRONT_DOOR_KEYHOLE_LOOK);
+                    } else if (line.contains("go") && line.contains("back")) {
+                        System.out.println(Room2.START);
+                        break;
                     }
                 }
-            } else if (line.equalsIgnoreCase("B")) {
+            } else if (line.contains("check") && line.contains("out") && line.contains("table")) {
 
-            } else if (line.equalsIgnoreCase("C")) {
-
+            } else if (line.contains("check") && line.contains("out") && line.contains("right") && line.contains("door")) {
+                while(true){
+                    System.out.print(Tools.PROMPT);
+                    line = readLine();
+                    line.toLowerCase();
+                    if (key1 == false && line.contains("put") && line.contains("finger") && line.contains("into") && line.contains("keyhole")) {
+                        System.out.println(Room2.RIGHT_DOOR_KEYHOLE_STRUGGLE);
+                    } else if (line.contains("go") && line.contains("back")) {
+                        System.out.println(Room2.START);
+                        break;
+                    }
+                }
             }
         }
     }
