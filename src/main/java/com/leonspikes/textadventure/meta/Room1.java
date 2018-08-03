@@ -1,10 +1,11 @@
-package com.leonmavroudi.textadventure.meta;
+package com.leonspikes.textadventure.meta;
 
-import com.leonmavroudi.textadventure.utilities.Tools;
+import com.leonspikes.textadventure.utilities.Tools;
 
 /**
- * @author Leon Spikes
  * In this class is all the text for ROOM ONE defined.
+ *
+ * @author Leon Spikes
  */
 
 public class Room1 {

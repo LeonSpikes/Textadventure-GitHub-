@@ -1,11 +1,16 @@
-package com.leonmavroudi.textadventure;
+package com.leonspikes.textadventure;
 
-import com.leonmavroudi.textadventure.meta.Room1;
-import com.leonmavroudi.textadventure.meta.Room2;
-import com.leonmavroudi.textadventure.meta.Start;
-import com.leonmavroudi.textadventure.utilities.Tools;
-import com.leonmavroudi.textadventure.utilities.Typing;
+import com.leonspikes.textadventure.meta.Room1;
+import com.leonspikes.textadventure.meta.Room2;
+import com.leonspikes.textadventure.meta.Start;
+import com.leonspikes.textadventure.utilities.Tools;
+import com.leonspikes.textadventure.utilities.Typing;
 
+/**
+ *
+ *
+ * @author Leon Spikes
+ */
 public class TextAdventure {
 
     public static void main(String[] args) { start(); }
@@ -29,21 +34,23 @@ public class TextAdventure {
     public static void firstRoom() {
         System.out.println();
         System.out.println(Room1.START);
-        System.out.print(Tools.PROMPT);
-        String line = Typing.readLine();
-        line.toLowerCase();
-        if (line.contains("not") && line.contains("go") && line.contains("through")) {
-            System.out.println();
-            System.out.println(Room1.DEATH_1);
-            System.out.println(Tools.RETURN_TO_RESTART);
+        while(true) {
             System.out.print(Tools.PROMPT);
-            line = Typing.readLine();
-            start();
-        } else if (line.contains("go") && line.contains("through")){
-            System.out.println(Room2.ENTER);
-            secondRoom();
-        } else {
-            firstRoom();
+            String line = Typing.readLine();
+            line.toLowerCase();
+            if (line.contains("not") && line.contains("go") && line.contains("through")) {
+                System.out.println();
+                System.out.println(Room1.DEATH_1);
+                System.out.println(Tools.RETURN_TO_RESTART);
+                System.out.print(Tools.PROMPT);
+                line = Typing.readLine();
+                start();
+            } else if (line.contains("go") && line.contains("through")) {
+                System.out.println(Room2.ENTER);
+                secondRoom();
+            } else {
+                firstRoom();
+            }
         }
     }
 
@@ -68,12 +75,14 @@ public class TextAdventure {
                 }
             } else if (line.contains("check") && line.contains("out") && line.contains("table")) {
 
-            } else if (line.contains("check") && line.contains("out") && line.contains("right") && line.contains("door")) {
+            } else if (line.contains("check") && line.contains("out") && line.contains("right")
+                    && line.contains("door")) {
                 while(true){
                     System.out.print(Tools.PROMPT);
                     line = Typing.readLine();
                     line.toLowerCase();
-                    if (Inventory.key[0] == false && line.contains("put") && line.contains("finger") && line.contains("into") && line.contains("keyhole")) {
+                    if (Inventory.key[0] == false && line.contains("put") && line.contains("finger")
+                            && line.contains("into") && line.contains("keyhole")) {
                         System.out.println(Room2.RIGHT_DOOR_KEYHOLE_STRUGGLE);
                     } else if (line.contains("go") && line.contains("back")) {
                         System.out.println(Room2.START);
